@@ -1,16 +1,29 @@
-import Form from "../components/form";
+import { useEffect, useState } from "react";
+import Form from "../components/donation-form/donation-form";
 import HeaderComponent from "../components/headercomponent";
 import "../sass/becomesponsor.scss";
 
 export default function SponsorTilmelding() {
 
+    const [setPhoneNumber, GetPhoneNumber] = useState("");
+    const [setEmail, GetEmail] = useState("");
+    const [setAddress, GetAddress] = useState("");
+    const [setCompanyName, GetCompanyName] = useState("");
+    const [setAmount, GetAmount] = useState("");
+    const [setSupportType, GetSupportType] = useState("");
+    useEffect(() =>{
+        const phoneNumber = localStorage.getItem("phoneNumber");
+        if (phoneNumber) {
+            setPhoneNumber(phoneNumber);
+        }
+    })
+
     return (
         <>
             <HeaderComponent />
-            <img src="" alt="" />
             <h2 className="siteheading">Tilmelding Som Sponsor</h2>
 
-            <p>
+            <p className="sponsortext">
                 Da det er meget individuelt, hvor meget en virksomhed kan og ønsker at støtte med, har vi
                 opdelt støttemulighederne i 3 kategorier:
             </p>

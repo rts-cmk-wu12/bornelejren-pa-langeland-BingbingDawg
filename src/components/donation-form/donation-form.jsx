@@ -1,5 +1,5 @@
+import "../donation-form/donation-form.scss";
 import { useState } from "react";
-
 
 export default function Form() {
     const [placeholder, setPlaceholder] = useState("");
@@ -21,18 +21,18 @@ export default function Form() {
         }
     };
 
+    const BASE_CLASS = "donation-form"
+
     const handleAmountChange = (event) => {
         setAmount(event.target.value);
     };
     const handleSubmit = (event) => {
         event.preventDefault();
         const newErrors = {};
+    
         // Validate required fields
         if (!event.target.name.value) {
             newErrors.name = "Firmanavn er påkrævet";
-        }
-        if (!event.target.email.value) {
-            newErrors.email = "Email er påkrævet";
         }
         if (!event.target.address.value) {
             newErrors.address = "Adresse er påkrævet";
@@ -43,8 +43,8 @@ export default function Form() {
         if (!amount) {
             newErrors.amount = "Beløb er påkrævet";
         }
-
-        // validate amounts minimum requirements
+    
+        // Validate amounts minimum requirements
         if (amount < 4000 && event.target.supportType.value === "1") {
             newErrors.amount = "Minimum 4000 kr. for Børnesponsorat";
         } else if (amount < 2000 && event.target.supportType.value === "2") {
@@ -53,50 +53,46 @@ export default function Form() {
             newErrors.amount = "Minimum 1 kr. for Støtte til foreningen";
         }
     
-
-    setErrors(newErrors);
-
-     // If no errors, proceed with form submission
-     if (Object.keys(newErrors).length === 0) {
-        alert("Formularen er sendt!")
-    } else {
-        console.log("Form submitted successfully!");
-    }
-};
-
+        setErrors(newErrors);
+    
+        // If no errors, proceed with form submission
+        if (Object.keys(newErrors).length === 0) {
+            alert("Formularen er sendt!");
+        }
+    };
+    
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <div>
+            <form className={BASE_CLASS} onSubmit={handleSubmit}>
+                <div className={`${BASE_CLASS}__select`}>
                     <label htmlFor="supportType">Støttetype</label>
                     <select name="supportType" id="supportType" onChange={handleSelectChange}>
-                        <option value="">Vælg en Støttetype</option>
+                        <option>Vælg en Støttetype</option>
                         <option value="1">Børnesponsorat</option>
                         <option value="2">Lejrsponsorat</option>
                         <option value="3">Støtte til foreningen</option>
                     </select>
                 </div>
-                <div>
+                <div className={`${BASE_CLASS}__select`}>
                     <label htmlFor="name">Firmanavn*</label>
-                    <input type="text" id="name" name="name" placeholder="Indtast firmanavn"/>
+                    <input type="text" id="name" name="name" placeholder="Indtast firmanavn" />
                     {errors.name && <div className="error">{errors.name}</div>}
                 </div>
-                <div>
+                <div className={`${BASE_CLASS}__select`}>
                     <label htmlFor="email">Mail*</label>
-                    <input type="email" id="email" name="email" placeholder="Indtast mailadresse" />
-                    {errors.name && <div className="error">{errors.email}</div>}
+                    <input type="email" id="email" name="email" placeholder="Indtast mailadresse" required />
                 </div>
-                <div>
+                <div className={`${BASE_CLASS}__select`}>
                     <label htmlFor="address">Adresse*</label>
-                    <input type="text" id="address" name="address" placeholder="Indtast adresse"/>
-                    {errors.name && <div className="error">{errors.address}</div>}
+                    <input type="text" id="address" name="address" placeholder="Indtast adresse" />
+                    {errors.address && <div className="error">{errors.address}</div>}
                 </div>
-                <div>
+                <div className={`${BASE_CLASS}__select`}>
                     <label htmlFor="phone">Telefon</label>
                     <input type="tel" id="phone" name="phone" placeholder="Indtast telefonnummer" />
-                    {errors.name && <div className="error">{errors.phone}</div>}
+                    {errors.phone && <div className="error">{errors.phone}</div>}
                 </div>
-                <div>
+                <div className={`${BASE_CLASS}__select`}>
                     <label htmlFor="amount">Beløb*</label>
                     <input
                         type="number"
@@ -106,9 +102,9 @@ export default function Form() {
                         value={amount}
                         onChange={handleAmountChange}
                     />
-                     {errors.amount && <div className="error">{errors.amount}</div>}
+                    {errors.amount && <div className="error">{errors.amount}</div>}
                 </div>
-                <button type="submit">Betal</button>
+                <button className={`${BASE_CLASS}__button`}type="submit">donér</button>
             </form>
         </>
     );
