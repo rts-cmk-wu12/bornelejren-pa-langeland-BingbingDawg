@@ -52,7 +52,7 @@ export default function Form() {
         const selectedValue = event.target.value;
         const selectedText = event.target.options[event.target.selectedIndex].text; // Get the text of the selected option
 
-        setSupportType(selectedValue);
+        setSupportType(selectedText);
 
         // Set specific prices as the placeholder based on the selected option
         if (selectedValue === "1") {
