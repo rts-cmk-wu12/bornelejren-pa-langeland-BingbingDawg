@@ -21,13 +21,17 @@
 
         & h3{
             margin-top: 1rem;
-            
+            font-weight: 700;
+            font-size: 24px;
         }
-
-        & p{
-            margin-top: 0.5rem;
-        }
+        
     }
+    
+&__description{
+    margin-top: 0.5rem;
+    font-size: 18px;
+    font-weight: 300;
+}
 }
 .sponsortext{
     display: flex;

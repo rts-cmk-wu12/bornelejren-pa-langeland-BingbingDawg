@@ -1,0 +1,18 @@
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; // Ensures the page takes up the full viewport height
+}
+
+.page-content {
+    flex: 1; // Makes the content area grow to fill available space
+}
+
+.sitefooter {
+    background-color: #d0000b;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+}

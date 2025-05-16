@@ -9,11 +9,16 @@
     border-radius: 0.5rem;
     width: 90%;
     align-items: center;
+    
     & input, select {
         grid-column: span 1; // Each input spans one column
         padding: 0.5rem;
         border: none;
         border-radius: 0.3rem;
+        font-weight: 300;
+    }
+    &__input-titles{
+        font-weight: 700;
     }
 
     &__button {
@@ -33,8 +38,21 @@
         display: flex;
         flex-direction: column;
     }
+    &__successmessaga{
+            margin-top: 1rem;
+            color: green;
+            font-weight: bold;
+            text-align: center;
+        }
+    }
    
+
+.error-container {
+    height: 1.5rem; // Reserve space for the error message
+    margin-top: 0.2rem; // Add some spacing between the input and the error message
+    grid-column: span 1;
 }
+
 .error{
     color: #ffff99;
 }
