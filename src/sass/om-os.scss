@@ -1,0 +1,26 @@
+@use "../sass/layout.scss";
+
+.gallerycontainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-auto-rows: 1fr 1fr;
+    
+    gap: 1rem;
+    justify-self: center;
+ 
+    
+        &__image{
+            width: 100%;
+            height: 100%;
+            object-fit:cover;
+        }
+}
+.aboutus-textfield{
+    display: flex;
+   text-align: center;
+    justify-self: center;
+    font-weight: 500;
+    width: 40rem;
+    font-size: 24px;
+    margin: 0.5rem 0.5rem;
+}

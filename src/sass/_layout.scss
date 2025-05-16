@@ -1,0 +1,11 @@
+@use 'resets';
+* {
+    @extend %resets;
+}
+
+.siteheading{
+ font-weight: 900;
+ font-size: 36px;
+ text-transform: uppercase;
+ text-align: center;
+}
