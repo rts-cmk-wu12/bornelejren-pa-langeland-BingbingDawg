@@ -1,0 +1,42 @@
+@use "../sass/layout.scss";
+
+
+.sponsorlist{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    &__text{
+        width: 18rem;
+        text-align: center;
+    }
+    &__image{
+       width: 300px;
+      
+    }
+    &__sponsors{
+        margin-top: 0.5rem;
+        border: #d0000b 1px solid;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); // Five columns
+        gap: 0.5rem; // Reduce spacing between items
+        width: 100%; // Ensure it spans the full width
+        padding: 0.5rem; // Add padding inside the grid
+        text-align: center; // Center-align text for each sponsor
+    }
+    
+    
+    &__sponsorheadings{
+        font-weight: 700; // Slightly reduce font weight
+        font-size: 1rem; // Reduce font size
+        margin: 0 auto; // Minimize margin between headings
+        line-height: 1.2; // Adjust line height for compactness
+    }
+}
+
+.sponsorbarrier{
+    width: 100%;
+    background-color: #d0000b;
+    height: 2rem;
+}
